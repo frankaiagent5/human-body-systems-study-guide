@@ -251,7 +251,9 @@
             }
             const message = `📚 **Study Guide Answers Submitted**\n\n${answers.join('\n')}`;
             
-            fetch('https://discord.com/api/webhooks/1493596273599578313/fUm7t7OxaD_vVbkIUMr2Mv7FsObs9MOxM87Cv4C1MOwJ-PxZN2WBWg-sJyj9QolNKQni', {
+            const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://discord.com/api/webhooks/1493596273599578313/fUm7t7OxaD_vVbkIUMr2Mv7FsObs9MOxM87Cv4C1MOwJ-PxZN2WBWg-sJyj9QolNKQni');
+            
+            fetch(proxyUrl, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({content: message.substring(0, 2000)})
