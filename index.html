@@ -3,376 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Body Systems - Interactive Study Guide</title>
+    <title>STUDY GUIDE: Human Body Systems</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Arial', 'Helvetica', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            max-width: 850px;
+            margin: 20px auto;
             padding: 20px;
+            font-size: 14px;
         }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
         h1 {
-            color: #2c3e50;
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        .section-title {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 30px 0 20px 0;
-            font-size: 1.8em;
+            font-size: 22px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
-        
+        h2 {
+            font-size: 18px;
+            margin: 25px 0 10px 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
         .question {
-            background: #f8f9fa;
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            margin: 8px 0;
         }
-        
-        .question-text {
+        .q-num {
             font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 12px;
-            color: #2c3e50;
         }
-        
-        .answer-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1em;
-            resize: vertical;
-            min-height: 80px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        
-        .answer-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
-        }
-        
-        .blanks {
-            margin: 15px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 6px;
-        }
-        
         input[type="text"] {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1em;
-            width: 200px;
-            margin: 5px;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="text"]:focus {
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 2px 4px;
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
         }
-        
+        input[type="text"]:focus {
+            border-bottom: 2px solid #0066cc;
+        }
+        .long-answer {
+            width: 100%;
+            border: 1px solid #000;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 5px;
+            margin: 5px 0;
+            min-height: 40px;
+            resize: vertical;
+        }
+        .long-answer:focus {
+            border-color: #0066cc;
+            outline: none;
+        }
+        .inline-blank {
+            width: 120px;
+            display: inline;
+        }
+        .wide-blank {
+            width: 200px;
+            display: inline;
+        }
+        .diagram-box {
+            border: 2px solid #000;
+            width: 400px;
+            height: 300px;
+            margin: 15px auto;
+            position: relative;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #666;
+        }
+        .label-area {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+        .label-input {
+            width: 150px;
+        }
         .submit-btn {
             display: block;
             width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 15px;
+            background: #333;
+            color: #fff;
             border: none;
-            border-radius: 8px;
-            font-size: 1.3em;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             margin-top: 30px;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: #555;
         }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        .instructions {
-            background: #e8f4fd;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .instructions h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .instructions ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .instructions li {
+        .section-answers {
             margin: 8px 0;
-            color: #555;
+            padding-left: 20px;
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            input[type="text"] {
-                width: 100%;
-                margin: 5px 0;
-            }
+        .answer-line {
+            margin: 4px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🔬 Human Body Systems Study Guide</h1>
-        
-        <div class="instructions">
-            <h3>📝 Instructions</h3>
-            <ul>
-                <li>Fill in all the answer fields below based on your knowledge</li>
-                <li>Be as detailed as possible - there's no "wrong" way to answer!</li>
-                <li>When you're done, click "Submit Answers"</li>
-                <li>I'll review your answers using AI and give you personalized feedback</li>
-                <li>Tell you what you got wrong and what areas to focus on</li>
-            </ul>
+    <h1>STUDY GUIDE: Human Body Systems</h1>
+    <form id="studyForm">
+        <h2>THE BRAIN:</h2>
+        <p><em>Label 1-10 on the diagram below.</em></p>
+
+        <div class="diagram-box">
+            [DIAGRAM: Brain - Label 1-10]
+        </div>
+        <div class="label-area">
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="brain_1" class="label-input" placeholder="Label 1"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="brain_2" class="label-input" placeholder="Label 2"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="brain_3" class="label-input" placeholder="Label 3"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="brain_4" class="label-input" placeholder="Label 4"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="brain_5" class="label-input" placeholder="Label 5"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="brain_6" class="label-input" placeholder="Label 6"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="brain_7" class="label-input" placeholder="Label 7"></div>
+            <div class="question"><span class="q-num">8.</span> <input type="text" name="brain_8" class="label-input" placeholder="Label 8"></div>
+            <div class="question"><span class="q-num">9.</span> <input type="text" name="brain_9" class="label-input" placeholder="Label 9"></div>
+            <div class="question"><span class="q-num">10.</span> <input type="text" name="brain_10" class="label-input" placeholder="Label 10"></div>
         </div>
 
-        <form id="studyForm">
-            <div class="section-title">🧠 The Brain</div>
-            
-            <div class="question">
-                <div class="question-text">1. What does the medulla oblongata do?</div>
-                <textarea class="answer-input" name="medulla_function" placeholder="Type your answer here..."></textarea>
-            </div>
+        <div class="question"><span class="q-num">11.</span> What does the medulla oblongata do?<br><textarea class="long-answer" name="q11"></textarea></div>
+        <div class="question"><span class="q-num">12.</span> What happens in the FRONTAL lobe of the cerebrum?<br><textarea class="long-answer" name="q12"></textarea></div>
+        <div class="question"><span class="q-num">13.</span> What happens in the OCCIPITAL lobe of the cerebrum?<br><textarea class="long-answer" name="q13"></textarea></div>
+        <div class="question"><span class="q-num">14.</span> What happens in the TEMPORAL lobe of the cerebrum?<br><textarea class="long-answer" name="q14"></textarea></div>
+        <div class="question"><span class="q-num">15.</span> What happens in the PARIETAL lobe of the cerebrum?<br><textarea class="long-answer" name="q15"></textarea></div>
+        <div class="question"><span class="q-num">16.</span> What does the cerebellum do?<br><textarea class="long-answer" name="q16"></textarea></div>
+        <div class="question"><span class="q-num">17.</span> How is it possible that some people can lose their entire cerebrum and cerebellum, yet not die?<br><textarea class="long-answer" name="q17"></textarea></div>
 
-            <div class="question">
-                <div class="question-text">2. What happens in the FRONTAL lobe of the cerebrum?</div>
-                <textarea class="answer-input" name="frontal_lobe" placeholder="Type your answer here..."></textarea>
-            </div>
+        <h2>Circulatory System</h2>
+        <div class="question"><span class="q-num">2.</span> What is the MAJOR function of the circulatory system?<br><textarea class="long-answer" name="circ2"></textarea></div>
+        <div class="question"><span class="q-num">3.</span> What is considered too slow for an adult heart rate? <input type="text" name="circ3a" class="inline-blank"> What is considered too fast? <input type="text" name="circ3b" class="inline-blank"></div>
+        <div class="question"><span class="q-num">4.</span> The upper chambers of the heart are called <input type="text" name="circ4a" class="inline-blank">, and the larger lower chambers are <input type="text" name="circ4b" class="inline-blank">.</div>
+        <div class="question"><span class="q-num">5.</span> What do the heart valves do to aid in the flow of blood?<br><textarea class="long-answer" name="circ5"></textarea></div>
+        <div class="question"><span class="q-num">6.</span> The heart functions as two pumps. One pump pushes blood to the <input type="text" name="circ6a" class="wide-blank">, and the other pump pushes blood to the rest of the <input type="text" name="circ6b" class="wide-blank">.</div>
+        <div class="question"><span class="q-num">7.</span> What causes the heart to beat?<br><textarea class="long-answer" name="circ7"></textarea></div>
+        <div class="question"><span class="q-num">8.</span> What part of the brain controls the rate of your heartbeat?<br><input type="text" name="circ8" class="inline-blank"></div>
+        <div class="question"><span class="q-num">9.</span> What are the three types of blood vessels?<br><textarea class="long-answer" name="circ9"></textarea></div>
+        <div class="question"><span class="q-num">10.</span> What part of blood pressure does systolic pressure measure?<br><textarea class="long-answer" name="circ10"></textarea></div>
+        <div class="question"><span class="q-num">11.</span> What does a high diastolic pressure indicate about your health?<br><textarea class="long-answer" name="circ11"></textarea></div>
+        <div class="question"><span class="q-num">12.</span> What is considered to be the average blood pressure reading for a typical adult? <input type="text" name="circ12" class="inline-blank"></div>
 
-            <div class="question">
-                <div class="question-text">3. What happens in the OCCIPITAL lobe of the cerebrum?</div>
-                <textarea class="answer-input" name="occipital_lobe" placeholder="Type your answer here..."></textarea>
-            </div>
+        <h2>IMMUNE SYSTEM:</h2>
+        <div class="question"><span class="q-num">1.</span> What is a pathogen?<br><textarea class="long-answer" name="imm1"></textarea></div>
+        <div class="question"><span class="q-num">2.</span> What WBC destroys a cell infected by a virus?<br><textarea class="long-answer" name="imm2"></textarea></div>
+        <div class="question"><span class="q-num">3.</span> A treatment that prevents a disease, but cannot cure a disease, is a <input type="text" name="imm3" class="wide-blank">.</div>
+        <div class="question"><span class="q-num">4.</span> What is the First Line Of Defense?<br><textarea class="long-answer" name="imm4"></textarea></div>
+        <div class="question"><span class="q-num">5.</span> What is the Second Line Of Defense?<br><textarea class="long-answer" name="imm5"></textarea></div>
+        <div class="question"><span class="q-num">6.</span> What is an antigen?<br><textarea class="long-answer" name="imm6"></textarea></div>
+        <div class="question"><span class="q-num">7.</span> What WBC makes antibodies? <input type="text" name="imm7" class="inline-blank"></div>
+        <div class="question"><span class="q-num">8.</span> What do macrophages do?<br><textarea class="long-answer" name="imm8"></textarea></div>
+        <div class="question"><span class="q-num">9.</span> What do Killer T Cells do?<br><textarea class="long-answer" name="imm9"></textarea></div>
+        <div class="question"><span class="q-num">10.</span> What do antibodies do to an invading pathogen?<br><textarea class="long-answer" name="imm10"></textarea></div>
+        <div class="question"><span class="q-num">11.</span> Name three skin secretions that keep pathogens out of your body:<br><textarea class="long-answer" name="imm11"></textarea></div>
+        <div class="question"><span class="q-num">12.</span> What do interferons do to viral growth?<br><textarea class="long-answer" name="imm12"></textarea></div>
+        <div class="question"><span class="q-num">13.</span> What are the 4 parts of an inflammatory response (think sunburn)?<br><textarea class="long-answer" name="imm13"></textarea></div>
+        <div class="question"><span class="q-num">14.</span> What are the three WBC's you know about in the immune system?<br><textarea class="long-answer" name="imm14"></textarea></div>
+        <div class="question"><span class="q-num">15.</span> What is a nonspecific defense against infection?<br><textarea class="long-answer" name="imm15"></textarea></div>
+        <div class="question"><span class="q-num">16.</span> How do your WBC's destroy pathogens after you become immune to them?<br><textarea class="long-answer" name="imm16"></textarea></div>
+        <div class="question"><span class="q-num">17.</span> Explain why some people have allergic reactions.<br><textarea class="long-answer" name="imm17"></textarea></div>
+        <div class="question"><span class="q-num">18.</span> What is it about pathogens that antibodies target?<br><textarea class="long-answer" name="imm18"></textarea></div>
+        <div class="question"><span class="q-num">19.</span> How do vaccinations confer immunity to a patient?<br><textarea class="long-answer" name="imm19"></textarea></div>
+        <div class="question"><span class="q-num">20.</span> The immune system uses many different types of cells. Describe the function of B Cells, T Cells, and Macrophages.<br><textarea class="long-answer" name="imm20"></textarea></div>
 
-            <div class="question">
-                <div class="question-text">4. What happens in the TEMPORAL lobe of the cerebrum?</div>
-                <textarea class="answer-input" name="temporal_lobe" placeholder="Type your answer here..."></textarea>
-            </div>
+        <h2>REPRODUCTIVE SYSTEM:</h2>
+        <p><em>Label the diagrams.</em></p>
 
-            <div class="question">
-                <div class="question-text">5. What happens in the PARIETAL lobe of the cerebrum?</div>
-                <textarea class="answer-input" name="parietal_lobe" placeholder="Type your answer here..."></textarea>
-            </div>
+        <div class="diagram-box">
+            [DIAGRAM: Male Reproductive System - Label 1-8]
+        </div>
+        <div class="label-area">
+            <p><strong>MALE:</strong></p>
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="male_1" class="label-input" placeholder="Label 1"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="male_2" class="label-input" placeholder="Label 2"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="male_3" class="label-input" placeholder="Label 3"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="male_4" class="label-input" placeholder="Label 4"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="male_5" class="label-input" placeholder="Label 5"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="male_6" class="label-input" placeholder="Label 6"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="male_7" class="label-input" placeholder="Label 7"></div>
+            <div class="question"><span class="q-num">8.</span> <input type="text" name="male_8" class="label-input" placeholder="Label 8"></div>
+        </div>
 
-            <div class="question">
-                <div class="question-text">6. What does the cerebellum do?</div>
-                <textarea class="answer-input" name="cerebellum" placeholder="Type your answer here..."></textarea>
-            </div>
+        <div class="diagram-box">
+            [DIAGRAM: Female Reproductive System - Label 1-7]
+        </div>
+        <div class="label-area">
+            <p><strong>FEMALE:</strong></p>
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="female_1" class="label-input" placeholder="Label 1"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="female_2" class="label-input" placeholder="Label 2"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="female_3" class="label-input" placeholder="Label 3"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="female_4" class="label-input" placeholder="Label 4"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="female_5" class="label-input" placeholder="Label 5"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="female_6" class="label-input" placeholder="Label 6"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="female_7" class="label-input" placeholder="Label 7"></div>
+        </div>
 
-            <div class="question">
-                <div class="question-text">7. How is it possible that some people can lose their entire cerebrum and cerebellum, yet not die?</div>
-                <textarea class="answer-input" name="cerebrum_survival" placeholder="Type your answer here..."></textarea>
-            </div>
+        <div class="question"><span class="q-num">1.</span> Where does meiosis take place in the male? <input type="text" name="rep1a" class="inline-blank"> In the female? <input type="text" name="rep1b" class="inline-blank"></div>
+        <div class="question"><span class="q-num">2.</span> The combination of sperm and seminal fluid is known as <input type="text" name="rep2" class="inline-blank"></div>
 
-            <div class="section-title">❤️ Circulatory System</div>
+        <div class="question"><span class="q-num">3.</span> The three responsibilities of the female reproductive tract are:<br>
+            Produces <input type="text" name="rep3a" class="wide-blank">
+            Produces eggs [ <input type="text" name="rep3b" class="inline-blank"> ]<br>
+            Supports & protects developing <input type="text" name="rep3c" class="wide-blank">
+        </div>
 
-            <div class="question">
-                <div class="question-text">8. What is the MAJOR function of the circulatory system?</div>
-                <textarea class="answer-input" name="circulatory_function" placeholder="Type your answer here..."></textarea>
-            </div>
+        <div class="question"><span class="q-num">4.</span> About once a month, a single egg leaves an ovary in the process called <input type="text" name="rep4a" class="wide-blank">.<br>
+            It travels down the <input type="text" name="rep4b" class="wide-blank"> Tube.<br>
+            If sperm is present, the egg gets <input type="text" name="rep4c" class="wide-blank">.<br>
+            If the egg implants into the uterus, <input type="text" name="rep4d" class="wide-blank"> has been achieved.
+        </div>
 
-            <div class="question">
-                <div class="question-text">9. What is considered too slow for an adult heart rate? What is considered too fast?</div>
-                <div class="blanks">
-                    Too slow: <input type="text" name="slow_heart_rate" placeholder="BPM">
-                    Too fast: <input type="text" name="fast_heart_rate" placeholder="BPM">
-                </div>
-            </div>
+        <div class="question"><span class="q-num">5.</span> What event hallmarks when a female is officially pregnant?<br><textarea class="long-answer" name="rep5"></textarea></div>
+        <div class="question"><span class="q-num">6.</span> Where does fertilization take place? <input type="text" name="rep6a" class="wide-blank"> Where does pregnancy take place? <input type="text" name="rep6b" class="wide-blank"></div>
+        <div class="question"><span class="q-num">7.</span> What is going on at each letter?<br>
+            a. <input type="text" name="rep7a" class="inline-blank">
+            b. <input type="text" name="rep7b" class="inline-blank"><br>
+            c. <input type="text" name="rep7c" class="inline-blank">
+            d. <input type="text" name="rep7d" class="inline-blank">
+        </div>
 
-            <div class="question">
-                <div class="question-text">10. The upper chambers of the heart are called ____, and the larger lower chambers are ____.</div>
-                <div class="blanks">
-                    Upper: <input type="text" name="heart_upper" placeholder="chambers">
-                    Lower: <input type="text" name="heart_lower" placeholder="chambers">
-                </div>
-            </div>
-
-            <div class="question">
-                <div class="question-text">11. What do the heart valves do to aid in the flow of blood?</div>
-                <textarea class="answer-input" name="heart_valves" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">12. The heart functions as two pumps. One pump pushes blood to the ____, and the other pump pushes blood to the rest of the ____.</div>
-                <div class="blanks">
-                    First pump: <input type="text" name="heart_pump1" placeholder="destination">
-                    Second pump: <input type="text" name="heart_pump2" placeholder="destination">
-                </div>
-            </div>
-
-            <div class="question">
-                <div class="question-text">13. What causes the heart to beat?</div>
-                <textarea class="answer-input" name="heart_beat" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">14. Remember from learning about the brain: What part of the brain controls the rate of your heartbeat?</div>
-                <div class="blanks">
-                    <input type="text" name="brain_heart_control" placeholder="Brain part">
-                </div>
-            </div>
-
-            <div class="question">
-                <div class="question-text">15. What are the three types of blood vessels?</div>
-                <textarea class="answer-input" name="blood_vessels" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="section-title">🛡️ Immune System</div>
-
-            <div class="question">
-                <div class="question-text">16. What is a pathogen?</div>
-                <textarea class="answer-input" name="pathogen" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">17. What WBC destroys a cell infected by a virus?</div>
-                <textarea class="answer-input" name="wbc_virus" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">18. A treatment that prevents a disease, but cannot cure a disease, is a ____.</div>
-                <div class="blanks">
-                    <input type="text" name="prevention_treatment" placeholder="Treatment name">
-                </div>
-            </div>
-
-            <div class="question">
-                <div class="question-text">19. What is the First Line Of Defense?</div>
-                <textarea class="answer-input" name="first_defense" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">20. What is the Second Line Of Defense?</div>
-                <textarea class="answer-input" name="second_defense" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">21. What is an antigen?</div>
-                <textarea class="answer-input" name="antigen" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">22. What WBC makes antibodies?</div>
-                <textarea class="answer-input" name="wbc_antibodies" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">23. What do macrophages do?</div>
-                <textarea class="answer-input" name="macrophages" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">24. What do Killer T Cells do?</div>
-                <textarea class="answer-input" name="killer_t_cells" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-text">25. What do antibodies do to an invading pathogen?</div>
-                <textarea class="answer-input" name="antibodies_action" placeholder="Type your answer here..."></textarea>
-            </div>
-
-            <div class="submit-btn" type="submit">✨ Submit Answers ✨</div>
-        </form>
-    </div>
+        <button type="submit" class="submit-btn">SUBMIT ANSWERS FOR REVIEW</button>
+    </form>
 
     <script>
         document.getElementById('studyForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Collect all answers
-            const formData = new FormData(e.target);
-            const answers = {};
-            formData.forEach((value, key) => {
-                answers[key] = value.trim();
-            });
-            
-            // Send to Discord webhook
-            const webhookUrl = 'https://discord.com/api/webhooks/1493596273599578313/fUm7t7OxaD_vVbkIUMr2Mv7FsObs9MOxM87Cv4C1MOwJ-PxZN2WBWg-sJyj9QolNKQni';
-            
-            // Format message for Discord
-            let message = '📚 **New Study Guide Answers**\n\n';
-            message += 'Here are the answers for review:\n\n';
-            
-            Object.entries(answers).forEach(([key, value]) => {
-                message += `**${key}:** ${value}\n`;
-            });
-            
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: message
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('✅ Answers submitted! I\'ll review them and give you feedback soon.');
-                } else {
-                    alert('❌ Error submitting answers. Please try again or copy-paste them to me directly.');
+            const form = e.target;
+            const data = new FormData(form);
+            let answers = [];
+            for (let [key, value] of data.entries()) {
+                if (value.trim()) {
+                    answers.push(`**${key}:** ${value.trim()}`);
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('❌ Error submitting answers. Please copy-paste them to me directly in chat.');
-            });
+            }
+            const message = `📚 **Study Guide Answers Submitted**\n\n${answers.join('\n')}`;
+            
+            fetch('https://discord.com/api/webhooks/1493596273599578313/fUm7t7OxaD_vVbkIUMr2Mv7FsObs9MOxM87Cv4C1MOwJ-PxZN2WBWg-sJyj9QolNKQni', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({content: message.substring(0, 2000)})
+            }).then(r => {
+                if (r.ok) alert('Answers submitted! Check Discord for feedback.');
+                else alert('Error submitting. Try again.');
+            }).catch(() => alert('Error submitting. Try again.'));
         });
     </script>
 </body>
