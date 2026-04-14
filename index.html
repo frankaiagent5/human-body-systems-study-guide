@@ -70,8 +70,6 @@
         }
         .diagram-box {
             border: 2px solid #000;
-            width: 400px;
-            height: 300px;
             margin: 15px auto;
             position: relative;
             background: #f9f9f9;
@@ -80,6 +78,11 @@
             justify-content: center;
             font-style: italic;
             color: #666;
+            padding: 10px;
+        }
+        .diagram-box img {
+            max-width: 100%;
+            height: auto;
         }
         .label-area {
             margin: 10px 0;
@@ -117,7 +120,9 @@
     <form id="studyForm">
         <h2>THE BRAIN:</h2>
         <p><em>Label 1-10 on the diagram below.</em></p>
-        <div class="diagram-box">[DIAGRAM: Brain - Label 1-10]</div>
+        <div class="diagram-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Brain_anatomy_sagittal_view.svg/600px-Brain_anatomy_sagittal_view.svg.png" alt="Brain Anatomy Diagram" onerror="this.style.display='none'; this.parentElement.innerHTML+='[Image failed to load. Please refer to your study guide PDF for the diagram.]'">
+        </div>
         <div class="label-area">
             <div class="question"><span class="q-num">1.</span> <input type="text" name="brain_1" class="label-input"></div>
             <div class="question"><span class="q-num">2.</span> <input type="text" name="brain_2" class="label-input"></div>
@@ -175,7 +180,9 @@
 
         <h2>REPRODUCTIVE SYSTEM:</h2>
         <p><em>Label the diagrams.</em></p>
-        <div class="diagram-box">[DIAGRAM: Male Reproductive System - Label 1-8]</div>
+        <div class="diagram-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Male_reproductive_system_lateral_view.svg/600px-Male_reproductive_system_lateral_view.svg.png" alt="Male Reproductive System" onerror="this.style.display='none'; this.parentElement.innerHTML+='[Image failed to load. Please refer to your study guide PDF for the diagram.]'">
+        </div>
         <div class="label-area">
             <p><strong>MALE:</strong></p>
             <div class="question"><span class="q-num">1.</span> <input type="text" name="male_1" class="label-input"></div>
@@ -188,7 +195,9 @@
             <div class="question"><span class="q-num">8.</span> <input type="text" name="male_8" class="label-input"></div>
         </div>
 
-        <div class="diagram-box">[DIAGRAM: Female Reproductive System - Label 1-7]</div>
+        <div class="diagram-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Female_reproductive_system_lateral_view.svg/600px-Female_reproductive_system_lateral_view.svg.png" alt="Female Reproductive System" onerror="this.style.display='none'; this.parentElement.innerHTML+='[Image failed to load. Please refer to your study guide PDF for the diagram.]'">
+        </div>
         <div class="label-area">
             <p><strong>FEMALE:</strong></p>
             <div class="question"><span class="q-num">1.</span> <input type="text" name="female_1" class="label-input"></div>
