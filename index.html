@@ -61,11 +61,11 @@
             outline: none;
         }
         .inline-blank {
-            width: 120px;
+            width: 80px;
             display: inline;
         }
         .wide-blank {
-            width: 200px;
+            width: 150px;
             display: inline;
         }
         .diagram-box {
@@ -88,7 +88,8 @@
             border: 1px solid #ccc;
         }
         .label-input {
-            width: 150px;
+            width: 100px;
+            margin-left: 5px;
         }
         .submit-btn {
             display: block;
@@ -105,12 +106,9 @@
         .submit-btn:hover {
             background: #555;
         }
-        .section-answers {
-            margin: 8px 0;
-            padding-left: 20px;
-        }
-        .answer-line {
-            margin: 4px 0;
+        .multi-line-input {
+            width: 100% !important;
+            min-height: 60px !important;
         }
     </style>
 </head>
@@ -119,23 +117,19 @@
     <form id="studyForm">
         <h2>THE BRAIN:</h2>
         <p><em>Label 1-10 on the diagram below.</em></p>
-
-        <div class="diagram-box">
-            [DIAGRAM: Brain - Label 1-10]
-        </div>
+        <div class="diagram-box">[DIAGRAM: Brain - Label 1-10]</div>
         <div class="label-area">
-            <div class="question"><span class="q-num">1.</span> <input type="text" name="brain_1" class="label-input" placeholder="Label 1"></div>
-            <div class="question"><span class="q-num">2.</span> <input type="text" name="brain_2" class="label-input" placeholder="Label 2"></div>
-            <div class="question"><span class="q-num">3.</span> <input type="text" name="brain_3" class="label-input" placeholder="Label 3"></div>
-            <div class="question"><span class="q-num">4.</span> <input type="text" name="brain_4" class="label-input" placeholder="Label 4"></div>
-            <div class="question"><span class="q-num">5.</span> <input type="text" name="brain_5" class="label-input" placeholder="Label 5"></div>
-            <div class="question"><span class="q-num">6.</span> <input type="text" name="brain_6" class="label-input" placeholder="Label 6"></div>
-            <div class="question"><span class="q-num">7.</span> <input type="text" name="brain_7" class="label-input" placeholder="Label 7"></div>
-            <div class="question"><span class="q-num">8.</span> <input type="text" name="brain_8" class="label-input" placeholder="Label 8"></div>
-            <div class="question"><span class="q-num">9.</span> <input type="text" name="brain_9" class="label-input" placeholder="Label 9"></div>
-            <div class="question"><span class="q-num">10.</span> <input type="text" name="brain_10" class="label-input" placeholder="Label 10"></div>
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="brain_1" class="label-input"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="brain_2" class="label-input"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="brain_3" class="label-input"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="brain_4" class="label-input"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="brain_5" class="label-input"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="brain_6" class="label-input"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="brain_7" class="label-input"></div>
+            <div class="question"><span class="q-num">8.</span> <input type="text" name="brain_8" class="label-input"></div>
+            <div class="question"><span class="q-num">9.</span> <input type="text" name="brain_9" class="label-input"></div>
+            <div class="question"><span class="q-num">10.</span> <input type="text" name="brain_10" class="label-input"></div>
         </div>
-
         <div class="question"><span class="q-num">11.</span> What does the medulla oblongata do?<br><textarea class="long-answer" name="q11"></textarea></div>
         <div class="question"><span class="q-num">12.</span> What happens in the FRONTAL lobe of the cerebrum?<br><textarea class="long-answer" name="q12"></textarea></div>
         <div class="question"><span class="q-num">13.</span> What happens in the OCCIPITAL lobe of the cerebrum?<br><textarea class="long-answer" name="q13"></textarea></div>
@@ -181,57 +175,49 @@
 
         <h2>REPRODUCTIVE SYSTEM:</h2>
         <p><em>Label the diagrams.</em></p>
-
-        <div class="diagram-box">
-            [DIAGRAM: Male Reproductive System - Label 1-8]
-        </div>
+        <div class="diagram-box">[DIAGRAM: Male Reproductive System - Label 1-8]</div>
         <div class="label-area">
             <p><strong>MALE:</strong></p>
-            <div class="question"><span class="q-num">1.</span> <input type="text" name="male_1" class="label-input" placeholder="Label 1"></div>
-            <div class="question"><span class="q-num">2.</span> <input type="text" name="male_2" class="label-input" placeholder="Label 2"></div>
-            <div class="question"><span class="q-num">3.</span> <input type="text" name="male_3" class="label-input" placeholder="Label 3"></div>
-            <div class="question"><span class="q-num">4.</span> <input type="text" name="male_4" class="label-input" placeholder="Label 4"></div>
-            <div class="question"><span class="q-num">5.</span> <input type="text" name="male_5" class="label-input" placeholder="Label 5"></div>
-            <div class="question"><span class="q-num">6.</span> <input type="text" name="male_6" class="label-input" placeholder="Label 6"></div>
-            <div class="question"><span class="q-num">7.</span> <input type="text" name="male_7" class="label-input" placeholder="Label 7"></div>
-            <div class="question"><span class="q-num">8.</span> <input type="text" name="male_8" class="label-input" placeholder="Label 8"></div>
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="male_1" class="label-input"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="male_2" class="label-input"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="male_3" class="label-input"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="male_4" class="label-input"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="male_5" class="label-input"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="male_6" class="label-input"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="male_7" class="label-input"></div>
+            <div class="question"><span class="q-num">8.</span> <input type="text" name="male_8" class="label-input"></div>
         </div>
 
-        <div class="diagram-box">
-            [DIAGRAM: Female Reproductive System - Label 1-7]
-        </div>
+        <div class="diagram-box">[DIAGRAM: Female Reproductive System - Label 1-7]</div>
         <div class="label-area">
             <p><strong>FEMALE:</strong></p>
-            <div class="question"><span class="q-num">1.</span> <input type="text" name="female_1" class="label-input" placeholder="Label 1"></div>
-            <div class="question"><span class="q-num">2.</span> <input type="text" name="female_2" class="label-input" placeholder="Label 2"></div>
-            <div class="question"><span class="q-num">3.</span> <input type="text" name="female_3" class="label-input" placeholder="Label 3"></div>
-            <div class="question"><span class="q-num">4.</span> <input type="text" name="female_4" class="label-input" placeholder="Label 4"></div>
-            <div class="question"><span class="q-num">5.</span> <input type="text" name="female_5" class="label-input" placeholder="Label 5"></div>
-            <div class="question"><span class="q-num">6.</span> <input type="text" name="female_6" class="label-input" placeholder="Label 6"></div>
-            <div class="question"><span class="q-num">7.</span> <input type="text" name="female_7" class="label-input" placeholder="Label 7"></div>
+            <div class="question"><span class="q-num">1.</span> <input type="text" name="female_1" class="label-input"></div>
+            <div class="question"><span class="q-num">2.</span> <input type="text" name="female_2" class="label-input"></div>
+            <div class="question"><span class="q-num">3.</span> <input type="text" name="female_3" class="label-input"></div>
+            <div class="question"><span class="q-num">4.</span> <input type="text" name="female_4" class="label-input"></div>
+            <div class="question"><span class="q-num">5.</span> <input type="text" name="female_5" class="label-input"></div>
+            <div class="question"><span class="q-num">6.</span> <input type="text" name="female_6" class="label-input"></div>
+            <div class="question"><span class="q-num">7.</span> <input type="text" name="female_7" class="label-input"></div>
         </div>
 
         <div class="question"><span class="q-num">1.</span> Where does meiosis take place in the male? <input type="text" name="rep1a" class="inline-blank"> In the female? <input type="text" name="rep1b" class="inline-blank"></div>
         <div class="question"><span class="q-num">2.</span> The combination of sperm and seminal fluid is known as <input type="text" name="rep2" class="inline-blank"></div>
-
         <div class="question"><span class="q-num">3.</span> The three responsibilities of the female reproductive tract are:<br>
-            Produces <input type="text" name="rep3a" class="wide-blank">
+            Produces <input type="text" name="rep3a" class="wide-blank"><br>
             Produces eggs [ <input type="text" name="rep3b" class="inline-blank"> ]<br>
             Supports & protects developing <input type="text" name="rep3c" class="wide-blank">
         </div>
-
         <div class="question"><span class="q-num">4.</span> About once a month, a single egg leaves an ovary in the process called <input type="text" name="rep4a" class="wide-blank">.<br>
             It travels down the <input type="text" name="rep4b" class="wide-blank"> Tube.<br>
             If sperm is present, the egg gets <input type="text" name="rep4c" class="wide-blank">.<br>
             If the egg implants into the uterus, <input type="text" name="rep4d" class="wide-blank"> has been achieved.
         </div>
-
         <div class="question"><span class="q-num">5.</span> What event hallmarks when a female is officially pregnant?<br><textarea class="long-answer" name="rep5"></textarea></div>
         <div class="question"><span class="q-num">6.</span> Where does fertilization take place? <input type="text" name="rep6a" class="wide-blank"> Where does pregnancy take place? <input type="text" name="rep6b" class="wide-blank"></div>
         <div class="question"><span class="q-num">7.</span> What is going on at each letter?<br>
-            a. <input type="text" name="rep7a" class="inline-blank">
+            a. <input type="text" name="rep7a" class="inline-blank"><br>
             b. <input type="text" name="rep7b" class="inline-blank"><br>
-            c. <input type="text" name="rep7c" class="inline-blank">
+            c. <input type="text" name="rep7c" class="inline-blank"><br>
             d. <input type="text" name="rep7d" class="inline-blank">
         </div>
 
@@ -258,9 +244,9 @@
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({content: message.substring(0, 2000)})
             }).then(r => {
-                if (r.ok) alert('Answers submitted! Check Discord for feedback.');
-                else alert('Error submitting. Try again.');
-            }).catch(() => alert('Error submitting. Try again.'));
+                if (r.ok) alert('✅ Answers submitted! Check Discord for feedback.');
+                else alert('❌ Error submitting. Please try again.');
+            }).catch(() => alert('❌ Error submitting. Please try again.'));
         });
     </script>
 </body>
